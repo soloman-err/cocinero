@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+// import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
-  console.log(createUser);
+  // const { createUser } = useContext(AuthContext);
+  // console.log(createUser);
 
   const handleRegister = (event) => {
     event.preventDefault();
