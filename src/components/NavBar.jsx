@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -7,13 +8,15 @@ const NavBar = () => {
       <h1 className="text-2xl font-bold">Cocinero</h1>
 
       <ul className="flex gap-5">
-        <li>Home</li>
-        <li>Blog</li>
-        <li>About us</li>
+        <Link to="/">Home</Link>
+        <Link to="blog">Blog</Link>
+        <Link to="about">About us</Link>
       </ul>
 
       <div>
-        <Button>Login</Button>
+        <Link to="login">
+          <Button>Login</Button>
+        </Link>
       </div>
     </nav>
   );
