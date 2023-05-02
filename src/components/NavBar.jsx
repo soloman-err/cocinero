@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { Link, useLocation } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 const NavBar = () => {
   const [activeState, setActiveState] = useState("");
   const location = useLocation();
-  console.log(activeState);
 
   useEffect(() => {
     setActiveState(location.pathname);
   }, [location.pathname]);
 
   const activeStyle = {
-    fontWeight: "bold",
+    borderBottom: "2px solid #92400E",
   };
 
   return (
     <nav className="flex items-center justify-between">
-      <h1 className="text-2xl font-bold">Cocinero</h1>
+      <h1 translate="no" className="text-2xl md:text-4xl lg:text-5xl font-bold">
+        Cocinero
+      </h1>
 
-      <ul className="flex gap-5">
+      <ul className="hidden md:flex gap-5 uppercase">
         <Link to="/" style={activeState == "/" ? activeStyle : null}>
           Home
         </Link>
@@ -31,11 +33,15 @@ const NavBar = () => {
         </Link>
       </ul>
 
-      <div>
+      <div className="hidden md:flex">
         <Link to="login">
-          <Button>Login</Button>
+          <Button>
+            <p className="px-10">Login</p>
+          </Button>
         </Link>
       </div>
+
+      <FaBars className="md:hidden" />
     </nav>
   );
 };
