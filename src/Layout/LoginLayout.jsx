@@ -5,7 +5,7 @@ import Footer from "../Shared/Footer";
 
 const LoginLayout = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto min-h-screen flex flex-col">
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
