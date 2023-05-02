@@ -4,8 +4,8 @@ import Root from "../Layout/Root";
 import Blog from "../Pages/Blog";
 import About from "../Pages/About";
 import LoginLayout from "../Layout/LoginLayout";
-import Login from "../Auth/Login";
-import Register from "../Auth/Register";
+import Login from "../Authenticate/Login";
+import Register from "../Authenticate/Register";
 
 const router = createBrowserRouter([
   {

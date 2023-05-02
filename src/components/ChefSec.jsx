@@ -36,12 +36,12 @@ const ChefSec = () => {
       </div>
 
       <div className="text-center py-5 border-t mb-10">
-        <h1 className="font-bold md:text-3xl lg:text-4xl border-b-2 inline">
+        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl border-b-2 inline">
           Hire a Cuisine Master
         </h1>
       </div>
 
-      <div className="w-[70%] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-2">
+      <div className="w-[90%] md:w-[70%] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-2">
         {chefData.map((chef) => (
           <div
             key={chef?.id}

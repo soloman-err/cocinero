@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  overflow-y: scroll;
-  background-color: rgb(22, 20, 20);
-  /* background-color: rgba(24, 18, 18, 0.933); */
-}
-
 #root {
   height: 100vh;
   background-image: url(../src/assets/cocinero-bg.jpg);
