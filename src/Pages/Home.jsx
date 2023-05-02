@@ -3,7 +3,7 @@ import Carousel from "../components/Carousel";
 
 const Home = () => {
   return (
-    <div>
+    <div className="mt-10">
       <Carousel></Carousel>
     </div>
   );

@@ -7,18 +7,22 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 // import swiper required modules:
-import { EffectCoverflow, Pagination } from "swiper";
+import { EffectCoverflow } from "swiper";
 
 const Carousel = () => {
   const [featuredData, setFeaturedData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        "https://cocinero-server-soloman-err.vercel.app/featured"
-      );
-      const data = await res.json();
-      setFeaturedData(data);
+      try {
+        const res = await fetch(
+          "https://cocinero-server-soloman-err.vercel.app/featured"
+        );
+        const data = await res.json();
+        setFeaturedData(data);
+      } catch (err) {
+        console.log(err);
+      }
     };
     fetchData();
   }, []);
@@ -28,7 +32,15 @@ const Carousel = () => {
       effect={"coverflow"}
       grabCursor={true}
       centeredSlides={true}
-      slidesPerView={3}
+      slidesPerView={2}
+      breakpoints={{
+        640: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+      }}
       coverflowEffect={{
         rotate: 50,
         stretch: 0,
@@ -36,8 +48,8 @@ const Carousel = () => {
         modifier: 1,
         slideShadows: true,
       }}
-      modules={[EffectCoverflow, Pagination]}
-      pagination={true}
+      modules={[EffectCoverflow]}
+      className="w-full md:w-4/5 lg:w-3/4 xl:w-2/3"
     >
       {featuredData.map((featured) => (
         <SwiperSlide key={featured.id} className="relative">
@@ -46,7 +58,7 @@ const Carousel = () => {
           </h1>
           <img className="rounded-xl" src={featured.image} alt="" />
           <p className="absolute bottom-0 p-2 md:p-5">
-            {featured.desc.slice(0, 100)}
+            {featured.desc.slice(0, 60)}..
           </p>
         </SwiperSlide>
       ))}
