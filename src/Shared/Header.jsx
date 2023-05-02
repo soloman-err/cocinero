@@ -1,15 +1,10 @@
 import React from "react";
+import NavBar from "../components/NavBar";
 
 const Header = () => {
   return (
-    <div>
-      <h2>Cocinero</h2>
-      <div>
-        <li>home</li>
-        <li>blog</li>
-        <li>about</li>
-        <li>recipes</li>
-      </div>
+    <div className="container mx-auto py-5">
+      <NavBar />
     </div>
   );
 };
