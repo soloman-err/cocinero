@@ -49,7 +49,7 @@ const Carousel = () => {
         slideShadows: true,
       }}
       modules={[EffectCoverflow]}
-      className="w-full md:w-4/5 lg:w-3/4 xl:w-2/3"
+      className="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 my-20"
     >
       {featuredData.map((featured) => (
         <SwiperSlide key={featured.id} className="relative">

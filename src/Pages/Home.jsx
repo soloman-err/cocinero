@@ -1,10 +1,13 @@
 // import React, { useState } from "react";
 import Carousel from "../components/Carousel";
+import ChefSec from "../components/ChefSec";
+import SlideShow from "../components/SlideShow";
 
 const Home = () => {
   return (
-    <div className="mt-10">
+    <div className="">
       <Carousel></Carousel>
+      <ChefSec></ChefSec>
     </div>
   );
 };
