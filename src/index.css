@@ -4,7 +4,8 @@
 
 #root {
   height: 100vh;
-  background-image: url(../src/assets/cocinero-bg.jpg);
+  background-color: #111;
+  background-image: url(../src/assets/cocinero-bg.jp);
   background-position: center;
   background-size: cover;
   color: #fff;

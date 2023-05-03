@@ -1,14 +1,23 @@
-import React, { useEffect, useState } from "react";
-import Button from "./Button";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaCross } from "react-icons/fa";
+import { FaBars, FaUser, FaUserCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  // const { displayName, photoURL } = user;
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
   const [activeState, setActiveState] = useState("");
   const location = useLocation();
+
+  // User log out:
+  const handleLogOut = () => {
+    logOut();
+    console.log("logged out");
+  };
 
   useEffect(() => {
     setActiveState(location.pathname);
@@ -41,12 +50,36 @@ const NavBar = () => {
         </Link>
       </ul>
 
+      {/* Conditional user state: Login/Logout */}
       <div className="hidden md:flex">
-        <Link to="login">
-          <Button>
-            <p className="px-10">Login</p>
-          </Button>
-        </Link>
+        {user ? (
+          <div className="flex gap-2 items-center">
+            <img
+              className="rounded-full w-10 h-10"
+              src={user.photoURL ? user?.photoURL : user?.displayName}
+              alt="user-image"
+            />
+            <button
+              onClick={handleLogOut}
+              className="px-10 py-1 font-bold bg-amber-800 hover:bg-amber-700"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="flex gap-2">
+            <Link to="login">
+              <button className="px-5 py-1 font-bold bg-amber-800 hover:bg-amber-700">
+                Login
+              </button>
+            </Link>
+            <Link to="register">
+              <button className="px-5 py-1 font-bold bg-amber-800 hover:bg-amber-700">
+                Register
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
 
       <div className="md:hidden" onClick={() => setOpen(!open)}>
