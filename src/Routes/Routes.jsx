@@ -7,6 +7,7 @@ import LoginLayout from "../Layout/LoginLayout";
 import Login from "../Authenticate/Login";
 import Register from "../Authenticate/Register";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import ChefRecipes from "../Pages/ChefRecipes";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,14 @@ const router = createBrowserRouter([
         path: "about",
         element: <About></About>,
       },
+      {
+        path: "/chef-recipes/:id",
+        element: <ChefRecipes></ChefRecipes>,
+        loader: ({ params }) =>
+          fetch(
+            `https://cocinero-server-soloman-err.vercel.app/chef/${params.id}`
+          ),
+      },
     ],
   },
   {
@@ -40,7 +49,7 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/*",
+        path: "*",
         element: <ErrorPage></ErrorPage>,
       },
     ],

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaHeart, FaThumbsUp } from "react-icons/fa";
-import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const ChefSec = () => {
   const [chefData, setChefData] = useState([]);
@@ -58,16 +57,18 @@ const ChefSec = () => {
               </h2>
               {/* <p className="">{chef?.bio.slice(0, 70)}</p> */}
               <h3>
-                <span className="font-bold">Experience: </span>
+                <span className="font-bold text-slate-800">Experience: </span>
                 {chef?.experience} Years
               </h3>
-              <h3 className="flex items-center gap-1">
+              <h3 className="flex items-center gap-1 text-slate-800">
                 <span className="font-bold">Reactions:</span>
                 {chef?.numLikes}k Likes
               </h3>
             </div>
-            <div className="absolute bottom-0 bg-amber-800 w-full text-center font-bold text-white py-2">
-              <button>View Recipes</button>
+            <div className="absolute hover:bg-yellow-800 hover:text-lg bottom-0 bg-yellow-700 border-2 border-t-0 w-full text-center font-bold text-white py-2">
+              <Link to={`/chef-recipes/${chef.id}`}>
+                <button>View Recipes</button>
+              </Link>
             </div>
           </div>
         ))}

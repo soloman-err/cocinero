@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaCross } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
 const NavBar = () => {
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
   const [activeState, setActiveState] = useState("");
   const location = useLocation();
 
@@ -17,7 +20,7 @@ const NavBar = () => {
 
   return (
     <nav className="flex items-center justify-between">
-      <h1 translate="no" className="text-2xl md:text-4xl lg:text-5xl font-bold">
+      <h1 translate="no" className="text-3xl md:text-4xl lg:text-5xl font-bold">
         Cocinero
       </h1>
 
@@ -41,7 +44,9 @@ const NavBar = () => {
         </Link>
       </div>
 
-      <FaBars className="md:hidden" />
+      <div className="md:hidden" onClick={() => setOpen(!open)}>
+        {open === true ? <ImCross size={25} /> : <FaBars size={25} />}
+      </div>
     </nav>
   );
 };

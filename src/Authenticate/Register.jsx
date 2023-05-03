@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Form, Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
-  // const { createUser } = useContext(AuthContext);
-  // console.log(createUser);
+  const { createUser } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -25,10 +24,10 @@ const Register = () => {
     <div className="hero my-5">
       <div className="hero-content flex-col">
         <div className="text-center">
-          <h1 className="text-4xl font-bold">Please Register!</h1>
+          <h1 className="text-2xl font-bold">Please Register!</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form onSubmit={handleRegister} className="card-body">
+          <Form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -55,7 +54,7 @@ const Register = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Photo Url</span>
+                <span className="label-text">Photo url</span>
               </label>
               <input
                 type="text"
@@ -88,7 +87,7 @@ const Register = () => {
                 Login
               </Link>
             </small>
-          </form>
+          </Form>
         </div>
       </div>
     </div>
