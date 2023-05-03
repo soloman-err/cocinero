@@ -4,16 +4,19 @@ import Swal from "sweetalert2";
 
 const RecipeCard = ({ recipe }) => {
   const { id, title, thumbnail, method, ingredients } = recipe;
-  console.log(ingredients);
 
   // handle favorite:
   const handleFavorite = (id) => {
-    console.log(id);
-    Swal.fire("Added to Favorite!", "check more dishes", "success");
+    // console.log(id);
+    Swal.fire(
+      title + " " + "Added to Favorite!",
+      "check more dishes",
+      "success"
+    );
   };
 
   return (
-    <div className="card bg-base-100 shadow-xl border border-slate-700 overflow-hidden">
+    <div className="card rounded-2xl bg-base-100 shadow-xl border border-slate-700 overflow-hidden">
       <img src={thumbnail} alt="" />
 
       <div className="card-body px-5 relative">

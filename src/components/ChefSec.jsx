@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const ChefSec = () => {
   const [chefData, setChefData] = useState([]);
-  console.log(chefData);
+  // console.log(chefData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,8 +36,8 @@ const ChefSec = () => {
         </p>
       </div>
 
-      <div className="text-center py-5 border-t mb-10">
-        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl border-b-2 inline">
+      <div className="text-center py-5 md:py-10 border-t mb-10">
+        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl border-b-2 inline border-amber-800">
           Hire a Cuisine Master
         </h1>
       </div>
@@ -44,10 +46,10 @@ const ChefSec = () => {
         {chefData.map((chef) => (
           <div
             key={chef?.id}
-            className="bg-stone-300 text-black relative rounded-t-full pb-10"
+            className="bg-stone-300 text-black relative rounded-t-3xl pb-10"
           >
             <img
-              className="rounded-t-full"
+              className="rounded-t-3xl"
               src={chef?.image}
               alt="chef-featured-image"
             />
@@ -60,10 +62,19 @@ const ChefSec = () => {
                 <span className="font-bold text-slate-800">Experience: </span>
                 {chef?.experience} Years
               </h3>
+
               <h3 className="flex items-center gap-1 text-slate-800">
                 <span className="font-bold">Reactions:</span>
                 {chef?.numLikes}k Likes
               </h3>
+              <Rating
+                placeholderRating={chef.rating}
+                placeholderSymbol={<FaStar />}
+                fullSymbol={<FaStar />}
+                emptySymbol={<FaStarHalfAlt />}
+                readonly
+                className="text-amber-700"
+              />
             </div>
             <div className="absolute hover:bg-amber-800 hover:text-lg bottom-0 bg-amber-900 border-2 border-t-0 w-full text-center font-bold text-white py-2">
               <Link to={`/chef-recipes/${chef.id}`}>

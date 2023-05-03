@@ -53,12 +53,12 @@ const Carousel = () => {
     >
       {featuredData.map((featured) => (
         <SwiperSlide key={featured.id} className="relative">
-          <h1 className="absolute top-0 p-2 md:p-5 font-bold text-4xl">
+          <h1 className="absolute top-0 p-2 md:p-5 font-bold text-2xl md:text-3xl">
             {featured.title}
           </h1>
           <img className="rounded-xl" src={featured.image} alt="" />
-          <p className="absolute bottom-0 font-bold p-2 md:p-5">
-            {featured.desc.slice(0, 60)}..
+          <p className="absolute bottom-0 font-bold px-2 md:px-3 py-2 bg-slate-800 opacity-90">
+            {featured.desc.slice(0, 50)}..
           </p>
         </SwiperSlide>
       ))}

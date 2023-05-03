@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
+import {
+  FaAngleDoubleRight,
+  FaStar,
+  FaStarHalfAlt,
+  FaUser,
+} from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import RecipeCard from "../components/RecipeCard";
+import Rating from "react-rating";
 
 const ChefRecipes = () => {
   const [recipes, setRecipes] = useState([]);
-  console.log(recipes);
 
   // loading chef recipes info:
   const chefInfo = useLoaderData();
-  console.log(chefInfo);
-  const { id, image, thumbnail, name, numLikes, numRecipes, bio, experience } =
-    chefInfo;
+  const {
+    id,
+    image,
+    thumbnail,
+    name,
+    numLikes,
+    numRecipes,
+    bio,
+    experience,
+    rating,
+  } = chefInfo;
 
   useEffect(() => {
     try {
@@ -41,10 +54,24 @@ const ChefRecipes = () => {
         <div className="border-l-4 ps-3 border-slate-600">
           <div className="mb-2 space-y-2">
             <h2 className="card-title lg:text-3xl">{name}</h2>
+            <Rating
+              placeholderRating={rating}
+              placeholderSymbol={<FaStar />}
+              fullSymbol={<FaStar />}
+              emptySymbol={<FaStarHalfAlt />}
+              readonly
+              className="text-amber-500"
+            />{" "}
             <small className="text-xs text-slate-200 flex items-center gap-1">
               <FaUser />
               {numLikes}k follower
             </small>
+            <div className="flex items-center gap-1">
+              <FaAngleDoubleRight />
+              <small className="text-slate-300">
+                {experience} years of experience.
+              </small>
+            </div>
           </div>
           <p className="text-slate-400">{bio}</p>
         </div>
