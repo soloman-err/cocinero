@@ -13,13 +13,10 @@ const RecipeCard = ({ recipe }) => {
   };
 
   return (
-    <div
-      key={id}
-      className="card bg-base-100 shadow-xl border border-slate-700 overflow-hidden"
-    >
+    <div className="card bg-base-100 shadow-xl border border-slate-700 overflow-hidden">
       <img src={thumbnail} alt="" />
 
-      <div className="card-body relative">
+      <div className="card-body px-5 relative">
         <h4 className="font-bold text-2xl">
           {title}
           <FaBookmark
@@ -40,7 +37,7 @@ const RecipeCard = ({ recipe }) => {
         <p className="underline underline-offset-4 text-amber-600 font-bold">
           Cooking Method:
         </p>
-        <p className="text-slate-300">{method}</p>
+        <p className="text-slate-300">{method.slice(0, 180)}..</p>
       </div>
     </div>
   );

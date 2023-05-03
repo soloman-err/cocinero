@@ -24,7 +24,7 @@ const ChefRecipes = () => {
   }, []);
 
   return (
-    <div className="w-[90%] md:w-[90%] lg:w-[80%] mx-auto mt-10 card bg-base-100 shadow-xl">
+    <div className="md:w-[90%] lg:w-[80%] mx-auto mt-10 card bg-base-100 shadow-xl">
       <figure className="">
         <img
           className="h-[20vh] md:h-[30vh] lg:h-[40vh] w-full object-center object-cover"
@@ -38,9 +38,9 @@ const ChefRecipes = () => {
           src={image}
           alt=""
         />
-        <div className="border-l ps-2 border-slate-400">
-          <div className="mb-2">
-            <h2 className="card-title">{name}</h2>
+        <div className="border-l-4 ps-3 border-slate-600">
+          <div className="mb-2 space-y-2">
+            <h2 className="card-title lg:text-3xl">{name}</h2>
             <small className="text-xs text-slate-200 flex items-center gap-1">
               <FaUser />
               {numLikes}k follower
@@ -48,9 +48,9 @@ const ChefRecipes = () => {
           </div>
           <p className="text-slate-400">{bio}</p>
         </div>
-        <div className="mt-2">
+        <div className="mt-5">
           <h2 className="text-slate-300 text-xl font-bold underline underline-offset-4">
-            Statistics:
+            Chef's Statistics:
           </h2>
         </div>
 

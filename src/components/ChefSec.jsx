@@ -48,8 +48,8 @@ const ChefSec = () => {
           >
             <img
               className="rounded-t-full"
-              src="https://www.ecpi.edu/sites/default/files/CIV%20Sept%2026.png"
-              alt=""
+              src={chef?.image}
+              alt="chef-featured-image"
             />
             <div className="text-sm px-2 py-5">
               <h2 className="font-bold text-xl border-b-2 border-amber-900 mb-2">
@@ -65,7 +65,7 @@ const ChefSec = () => {
                 {chef?.numLikes}k Likes
               </h3>
             </div>
-            <div className="absolute hover:bg-yellow-800 hover:text-lg bottom-0 bg-yellow-700 border-2 border-t-0 w-full text-center font-bold text-white py-2">
+            <div className="absolute hover:bg-amber-800 hover:text-lg bottom-0 bg-amber-900 border-2 border-t-0 w-full text-center font-bold text-white py-2">
               <Link to={`/chef-recipes/${chef.id}`}>
                 <button>View Recipes</button>
               </Link>

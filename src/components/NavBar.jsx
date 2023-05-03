@@ -20,9 +20,14 @@ const NavBar = () => {
 
   return (
     <nav className="flex items-center justify-between">
-      <h1 translate="no" className="text-3xl md:text-4xl lg:text-5xl font-bold">
-        Cocinero
-      </h1>
+      <Link to="/">
+        <h1
+          translate="no"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold"
+        >
+          Cocinero
+        </h1>
+      </Link>
 
       <ul className="hidden md:flex gap-5 uppercase">
         <Link to="/" style={activeState == "/" ? activeStyle : null}>
