@@ -1,16 +1,17 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Form, Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
-const provider = new GoogleAuthProvider();
-
 const Login = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, githubSignIn } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
+  // Google sign in:
   const handleGoogleSignIn = () => {
-    googleSignIn()
+    googleSignIn(googleProvider)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -20,13 +21,23 @@ const Login = () => {
       });
   };
 
+  // Github sing in:
+  const handleGithubSignIn = () => {
+    githubSignIn(githubProvider)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="hero mt-10">
       <div className="hero-content flex-col">
         <div className="text-center">
           <h1 className="text-2xl font-bold">Please Login!</h1>
         </div>
-        <Form className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <Form className="card rounded-xl flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
             <div className="form-control">
               <label className="label">
@@ -71,7 +82,7 @@ const Login = () => {
               {" "}
               <FaGoogle />
             </button>
-            <button className="border p-2 rounded">
+            <button onClick={handleGithubSignIn} className="border p-2 rounded">
               <FaGithub />
             </button>
           </div>

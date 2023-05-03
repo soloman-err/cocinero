@@ -12,12 +12,14 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const password = form.password.value;
 
-    createUser(email, password).then((result) => {
-      const createdUser = result.user;
-      console.log(createdUser).catch((error) => {
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+      })
+      .catch((error) => {
         console.log(error);
       });
-    });
   };
 
   return (
@@ -26,7 +28,7 @@ const Register = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold">Please Register!</h1>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card rounded-xl flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <Form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -77,7 +79,12 @@ const Register = () => {
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn bg-amber-700">Submit</button>
+              <button
+                onClick={createUser}
+                className="bg-amber-800 hover:bg-amber-700 py-2 font-bold"
+              >
+                Register
+              </button>
             </div>
 
             <small className="">
