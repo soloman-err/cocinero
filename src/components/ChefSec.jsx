@@ -25,15 +25,18 @@ const ChefSec = () => {
 
   return (
     <div className="w-[90%] mx-auto py-10">
-      <div className="md:w-[65%] mx-auto text-center my-20">
-        <h2 className="font-bold text-4xl md:text-5xl lg:text-7xl">
+      <div className="md:w-[65%] mx-auto my-20">
+        <h2 className="font-bold text-center text-4xl md:text-5xl lg:text-7xl">
           Bringing culinary excellence to your table.
         </h2>
-        <p className="w-[70%] mx-auto mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-          accusantium fuga totam ab in illum aperiam culpa commodi voluptate
-          sapiente rerum soluta illo voluptas nihil, provident animi. Vitae,
-          dolorum impedit.
+        <p className="w-[70%] mx-auto mt-5 text-xl text-center">
+          "Cooking is a language through which all the aspects of Spanish
+          culture can be expressed."
+        </p>
+        <p className="text-end">
+          <span className="text-end text-sm font-bold font-serif">
+            -Ferran Adria
+          </span>
         </p>
       </div>
 
