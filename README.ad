@@ -1,0 +1,37 @@
+Cocinero: https://cocinero-err.web.app
+
+
+=============>>>>>>About Cocinero<<<<<<============
+===================================================
+
+Information: Cocinero is a instance of largest culinary hunting gateway in mexico[Native Spanish].
+
+### Technologies: 
+    1. HTML5
+    2. TAILWIND CSS
+    3. REACT JS
+    4. FIREBASE & VERCEL (hosting & server)
+
+### Functionalities:
+>>> About: User will observe the gateway to hunting top notch Spanish chef by surfing on the landing page.
+
+>>> Featured: There is a featured cuisine slider where the Spanish traditional foods are displayed as well the short bio of each recipe.
+
+>>> Hire a Cuisine Master: The Cuisine master's section, displayed with professionals & their experiences.
+
+>>> View details/recipes: Each professionals has a 'View Recipe' option, by grabbing an authentication method, user will grant access for see further Information of each master.
+
+>>> Required auth: After navigating through authentication, user will delivered to master's profile, bio, rating, followers & their featured recipes.
+
+>>> Chef profile: On the master's profile page, there have 6 recipes & their ingredients & cooking methods. There have a favorite button, by clicking on the button user's dishes/recipes will add to users favorite list.
+
+>>> Blog: There have a blog page where respectively answered of 3 FAQ.
+
+>>> Authentication: There have a strict Authentication & Registration method.
+
+>>> Footer: All necessary route & terms served respectively.
+
+
+____________________________________________________
+This is an dedicated outline of the project: 
+©https://cocinero-web.app
