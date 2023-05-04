@@ -37,7 +37,13 @@ const NavBar = () => {
         </h1>
       </Link>
 
-      <ul className="hidden md:flex gap-5 uppercase">
+      <ul
+        className={`absolute z-10 flex flex-col md:flex-row ${
+          open
+            ? "top-0 left-0 bg-amber-800 md:bg-transparent ps-2 space-y-5 md:space-y-0 pr-3 pb-10 pt-10 "
+            : "top-16 -left-96"
+        } duration-300 md:static md:space-x-3 text-sm font-extrabold`}
+      >
         <Link to="/" style={activeState == "/" ? activeStyle : null}>
           Home
         </Link>
@@ -47,6 +53,18 @@ const NavBar = () => {
         <Link to="about" style={activeState == "/about" ? activeStyle : null}>
           About us
         </Link>
+        <div className="flex gap-2 md:hidden">
+          <Link to="login">
+            <button className="px-2 py-1 font-bold bg-amber-900 hover:bg-amber-950 border hover:shadow-lg">
+              Login
+            </button>
+          </Link>
+          <Link to="register">
+            <button className="px-2 py-1 font-bold bg-amber-900 hover:bg-amber-950 border hover:shadow-lg">
+              Register
+            </button>
+          </Link>
+        </div>
       </ul>
 
       {/* Conditional user state: Login/Logout */}
