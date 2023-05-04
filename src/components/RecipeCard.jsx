@@ -1,5 +1,6 @@
 import React from "react";
 import { FaBookmark } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
 import Swal from "sweetalert2";
 
 const RecipeCard = ({ recipe }) => {
@@ -17,7 +18,9 @@ const RecipeCard = ({ recipe }) => {
 
   return (
     <div className="card rounded-2xl bg-base-100 shadow-xl border border-slate-700 overflow-hidden">
-      <img src={thumbnail} alt="" />
+      <LazyLoad height={200}>
+        <img src={thumbnail} alt="" />
+      </LazyLoad>
 
       <div className="card-body px-5 relative">
         <h4 className="font-bold text-2xl">

@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 
 // import swiper required modules:
 import { EffectCoverflow } from "swiper";
+import LazyLoad from "react-lazyload";
 
 const Carousel = () => {
   const [featuredData, setFeaturedData] = useState([]);
@@ -56,7 +57,9 @@ const Carousel = () => {
           <h1 className="absolute top-0 p-2 md:p-5 font-bold text-2xl md:text-3xl">
             {featured.title}
           </h1>
-          <img className="rounded-xl" src={featured.image} alt="" />
+          <LazyLoad height={500}>
+            <img className="rounded-xl" src={featured.image} alt="" />
+          </LazyLoad>
           <p className="absolute bottom-0 font-bold px-2 md:px-3 py-2 bg-slate-800 opacity-90">
             {featured.desc.slice(0, 50)}..
           </p>

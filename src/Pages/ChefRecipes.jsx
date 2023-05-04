@@ -8,6 +8,7 @@ import {
 import { useLoaderData } from "react-router-dom";
 import RecipeCard from "../components/RecipeCard";
 import Rating from "react-rating";
+import LazyLoad from "react-lazy-load";
 
 const ChefRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -39,18 +40,22 @@ const ChefRecipes = () => {
   return (
     <div className="md:w-[90%] lg:w-[80%] mx-auto mt-10 card bg-base-100 shadow-xl">
       <figure className="">
-        <img
-          className="h-[20vh] md:h-[30vh] lg:h-[40vh] w-full object-center object-cover"
-          src={thumbnail}
-          alt="Album"
-        />
+        <LazyLoad className="w-full">
+          <img
+            className="h-[20vh] md:h-[30vh] lg:h-[40vh] w-full object-center object-cover"
+            src={thumbnail}
+            alt="Album"
+          />
+        </LazyLoad>
       </figure>
       <div className="card-body relative pt-20 lg:pt-32">
-        <img
-          className="rounded-full w-20 h-20 md:w-24 md:h-24 lg:w-40 lg:h-40 absolute -top-10 md:-top-10 lg:-top-20 left-6 object-cover object-center"
-          src={image}
-          alt=""
-        />
+        <LazyLoad>
+          <img
+            className="rounded-full w-20 h-20 md:w-24 md:h-24 lg:w-40 lg:h-40 absolute -top-10 md:-top-10 lg:-top-20 left-6 object-cover object-center"
+            src={image}
+            alt=""
+          />
+        </LazyLoad>
         <div className="border-l-4 ps-3 border-slate-600">
           <div className="mb-2 space-y-2">
             <h2 className="card-title lg:text-3xl">{name}</h2>

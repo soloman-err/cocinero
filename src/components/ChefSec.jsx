@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import LazyLoad from "react-lazyload";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
@@ -23,7 +24,7 @@ const ChefSec = () => {
   }, []);
 
   return (
-    <div className="w-[90%] mx-auto">
+    <div className="w-[90%] mx-auto py-10">
       <div className="md:w-[65%] mx-auto text-center my-20">
         <h2 className="font-bold text-4xl md:text-5xl lg:text-7xl">
           Bringing culinary excellence to your table.
@@ -48,16 +49,21 @@ const ChefSec = () => {
             key={chef?.id}
             className="bg-stone-300 text-black relative rounded-t-3xl pb-10"
           >
-            <img
-              className="rounded-t-3xl"
-              src={chef?.image}
-              alt="chef-featured-image"
-            />
+            <LazyLoad height={200}>
+              <img
+                className="rounded-t-3xl"
+                src={chef?.image}
+                alt="chef-featured-image"
+              />
+            </LazyLoad>
             <div className="text-sm px-2 py-5">
               <h2 className="font-bold text-xl border-b-2 border-amber-900 mb-2">
                 {chef?.name}
               </h2>
-              {/* <p className="">{chef?.bio.slice(0, 70)}</p> */}
+              <p className="text-xs text-slate-800">
+                {chef?.bio.slice(0, 60)}..
+              </p>
+              <br />
               <h3>
                 <span className="font-bold text-slate-800">Experience: </span>
                 {chef?.experience} Years
