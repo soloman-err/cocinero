@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -12,21 +13,31 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  // console.log(user);
+  console.log(user);
 
   // Google Authentication:
   const googleSignIn = (googleProvider) => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // Github Authentication:
   const githubSignIn = (githubProvider) => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
+  };
+
+  // Email-Pass Login:
+  const emailPassLogIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Create user with Email-Password:
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -35,6 +46,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       console.log(loggedUser);
       setUser(loggedUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -43,13 +55,16 @@ const AuthProvider = ({ children }) => {
 
   // User sign-out:
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   const authInfo = {
     user,
+    loading,
     googleSignIn,
     githubSignIn,
+    emailPassLogIn,
     createUser,
     logOut,
   };

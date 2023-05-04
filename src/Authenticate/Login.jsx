@@ -1,13 +1,38 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { googleSignIn, githubSignIn } = useContext(AuthContext);
+  const { googleSignIn, githubSignIn, emailPassLogIn } =
+    useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  console.log(location, from);
+
+  // Login with Email & Password:
+  const handleLogIn = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    if (email && password) {
+      emailPassLogIn(email, password)
+        .then((result) => {
+          form.reset();
+          navigate(from);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   // Google sign in:
   const handleGoogleSignIn = () => {
@@ -15,6 +40,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
@@ -27,6 +53,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from);
       })
       .catch((err) => console.log(err));
   };
@@ -37,7 +64,10 @@ const Login = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold">Please Login!</h1>
         </div>
-        <Form className="card rounded-xl flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <Form
+          onSubmit={handleLogIn}
+          className="card rounded-xl flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
+        >
           <div className="card-body">
             <div className="form-control">
               <label className="label">
@@ -66,7 +96,7 @@ const Login = () => {
             <small className="link no-underline">Forgot password?</small>
 
             <div className="form-control mt-6">
-              <button className="btn bg-amber-700">Submit</button>
+              <button className="btn bg-amber-700">Login</button>
             </div>
 
             <small className="">

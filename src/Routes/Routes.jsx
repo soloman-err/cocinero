@@ -8,6 +8,7 @@ import Login from "../Authenticate/Login";
 import Register from "../Authenticate/Register";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import ChefRecipes from "../Pages/ChefRecipes";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/chef-recipes/:id",
-        element: <ChefRecipes></ChefRecipes>,
+        element: (
+          <PrivateRoute>
+            <ChefRecipes></ChefRecipes>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://cocinero-server-soloman-err.vercel.app/chef/${params.id}`

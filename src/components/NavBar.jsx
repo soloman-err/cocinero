@@ -6,8 +6,8 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
   // const { displayName, photoURL } = user;
+
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
   const [activeState, setActiveState] = useState("");
@@ -16,7 +16,6 @@ const NavBar = () => {
   // User log out:
   const handleLogOut = () => {
     logOut();
-    console.log("logged out");
   };
 
   useEffect(() => {
