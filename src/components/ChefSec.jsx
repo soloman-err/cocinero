@@ -3,6 +3,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import LazyLoad from "react-lazyload";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import SlideShow from "./SlideShow";
 
 const ChefSec = () => {
   const [chefData, setChefData] = useState([]);
@@ -44,6 +45,9 @@ const ChefSec = () => {
         <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl border-b-2 inline border-amber-800">
           Hire a Cuisine Master
         </h1>
+      </div>
+      <div className="w-[90%] md:w-[70%] mx-auto">
+        <SlideShow></SlideShow>
       </div>
 
       <div className="w-[90%] md:w-[70%] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-2">
