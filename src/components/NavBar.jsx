@@ -44,23 +44,41 @@ const NavBar = () => {
             : "top-16 -left-96"
         } duration-300 md:static md:space-x-3 text-sm font-extrabold`}
       >
-        <Link to="/" style={activeState == "/" ? activeStyle : null}>
+        <Link
+          to="/"
+          onClick={() => setOpen(false)}
+          style={activeState == "/" ? activeStyle : null}
+        >
           Home
         </Link>
-        <Link to="blog" style={activeState == "/blog" ? activeStyle : null}>
+        <Link
+          to="blog"
+          onClick={() => setOpen(false)}
+          style={activeState == "/blog" ? activeStyle : null}
+        >
           Blog
         </Link>
-        <Link to="about" style={activeState == "/about" ? activeStyle : null}>
+        <Link
+          to="about"
+          onClick={() => setOpen(false)}
+          style={activeState == "/about" ? activeStyle : null}
+        >
           About us
         </Link>
         <div className="flex gap-2 md:hidden">
           <Link to="login">
-            <button className="px-2 py-1 font-bold bg-amber-900 hover:bg-amber-950 border hover:shadow-lg">
+            <button
+              onClick={() => setOpen(false)}
+              className="px-2 py-1 font-bold bg-amber-900 hover:bg-amber-950 border hover:shadow-lg"
+            >
               Login
             </button>
           </Link>
           <Link to="register">
-            <button className="px-2 py-1 font-bold bg-amber-900 hover:bg-amber-950 border hover:shadow-lg">
+            <button
+              onClick={() => setOpen(false)}
+              className="px-2 py-1 font-bold bg-amber-900 hover:bg-amber-950 border hover:shadow-lg"
+            >
               Register
             </button>
           </Link>
