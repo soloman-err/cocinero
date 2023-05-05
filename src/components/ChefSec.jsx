@@ -4,6 +4,7 @@ import LazyLoad from "react-lazyload";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import SlideShow from "./SlideShow";
+import Tilt from "react-parallax-tilt";
 
 const ChefSec = () => {
   const [chefData, setChefData] = useState([]);
@@ -40,61 +41,65 @@ const ChefSec = () => {
           </span>
         </p>
       </div>
-
+      <div className="w-[80%] md:w-[70%] my-5 bg-black border border-amber-700 border-l-0 border-r-0 mx-auto"></div>
       <div className="text-center py-5 md:py-10 border-t mb-10">
         <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl border-b-2 inline border-amber-800">
           Hire a Cuisine Master
         </h1>
       </div>
-      <div className="w-[90%] md:w-[70%] mx-auto">
-        <SlideShow></SlideShow>
-      </div>
+
+      {/* Chef card */}
 
       <div className="w-[90%] md:w-[70%] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-2">
         {chefData.map((chef) => (
-          <div
+          <Tilt
+            // glareEnable={true}
+            glarePosition="all"
+            // glareMaxOpacity={0.5}
+            scale={1.08}
             key={chef?.id}
-            className="bg-stone-300 text-black relative rounded-t-3xl pb-10"
           >
-            <LazyLoad height={200}>
-              <img
-                className="rounded-t-3xl"
-                src={chef?.image}
-                alt="chef-featured-image"
-              />
-            </LazyLoad>
-            <div className="text-sm px-2 py-5">
-              <h2 className="font-bold text-xl border-b-2 border-amber-900 mb-2">
-                {chef?.name}
-              </h2>
-              <p className="text-xs text-slate-800">
-                {chef?.bio.slice(0, 60)}..
-              </p>
-              <br />
-              <h3>
-                <span className="font-bold text-slate-800">Experience: </span>
-                {chef?.experience} Years
-              </h3>
+            <div className="bg-stone-300 text-black relative rounded-t-3xl pb-10">
+              <LazyLoad height={200}>
+                <img
+                  className="rounded-t-3xl"
+                  src={chef?.image}
+                  alt="chef-featured-image"
+                />
+              </LazyLoad>
+              <div className="text-sm px-2 py-5">
+                <h2 className="font-bold text-xl border-b-2 border-amber-900 mb-2">
+                  {chef?.name}
+                </h2>
+                <p className="text-xs text-slate-800">
+                  {chef?.bio.slice(0, 60)}..
+                </p>
+                <br />
+                <h3>
+                  <span className="font-bold text-slate-800">Experience: </span>
+                  {chef?.experience} Years
+                </h3>
 
-              <h3 className="flex items-center gap-1 text-slate-800">
-                <span className="font-bold">Reactions:</span>
-                {chef?.numLikes}k Likes
-              </h3>
-              <Rating
-                placeholderRating={chef.rating}
-                placeholderSymbol={<FaStar />}
-                fullSymbol={<FaStar />}
-                emptySymbol={<FaStarHalfAlt />}
-                readonly
-                className="text-amber-700"
-              />
+                <h3 className="flex items-center gap-1 text-slate-800">
+                  <span className="font-bold">Reactions:</span>
+                  {chef?.numLikes}k Likes
+                </h3>
+                <Rating
+                  placeholderRating={chef.rating}
+                  placeholderSymbol={<FaStar />}
+                  fullSymbol={<FaStar />}
+                  emptySymbol={<FaStarHalfAlt />}
+                  readonly
+                  className="text-amber-700"
+                />
+              </div>
+              <div className="absolute hover:bg-amber-800 hover:text-lg bottom-0 bg-amber-900 border-2 border-t-0 w-full text-center font-bold text-white py-2">
+                <Link to={`/chef-recipes/${chef.id}`}>
+                  <button>View Recipes</button>
+                </Link>
+              </div>
             </div>
-            <div className="absolute hover:bg-amber-800 hover:text-lg bottom-0 bg-amber-900 border-2 border-t-0 w-full text-center font-bold text-white py-2">
-              <Link to={`/chef-recipes/${chef.id}`}>
-                <button>View Recipes</button>
-              </Link>
-            </div>
-          </div>
+          </Tilt>
         ))}
       </div>
     </div>
