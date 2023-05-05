@@ -9,7 +9,7 @@ const ThemeToggle = () => {
     if (darkMode) {
       htmlElement.setAttribute("data-theme", "black");
     } else {
-      htmlElement.removeAttribute("data-theme");
+      htmlElement.setAttribute("data-theme", "acid");
     }
   };
   return (
