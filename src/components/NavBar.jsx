@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaUser, FaUserCircle } from "react-icons/fa";
+import { FaBars, FaHamburger, FaUser, FaUserCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import ThemeToggle from "./ThemeToggle";
@@ -141,7 +141,7 @@ const NavBar = () => {
       </div>
 
       <div className="md:hidden" onClick={() => setOpen(!open)}>
-        {open === true ? <ImCross size={25} /> : <FaBars size={25} />}
+        {open === true ? <ImCross size={25} /> : <FaHamburger size={25} />}
       </div>
     </nav>
   );

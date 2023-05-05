@@ -1,3 +1,4 @@
+import jsPDF from "jspdf";
 import React from "react";
 import {
   Accordion,
@@ -6,13 +7,34 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
+import { FaFileDownload } from "react-icons/fa";
 
 const Blog = () => {
+  const downloadPDF = (content) => {
+    const doc = new jsPDF();
+    doc.text(content, 10, 10);
+    doc.save("cocinero.pdf");
+  };
+
+  const handleDownload = () => {
+    downloadPDF("");
+  };
+
   return (
     <Accordion className="w-[90%] md:w-[80%] mx-auto my-10 space-y-5">
-      <h2 className="text-center font-bold md:text-3xl underline underline-offset-8 mb-10">
-        FAQ
-      </h2>
+      <div className="mb-10">
+        <h2 className="text-center font-bold md:text-3xl underline underline-offset-8 mb5">
+          FAQ
+        </h2>
+        <div className="flex justify-center">
+          <button
+            className="flex items-center gap-2 px-10 py-1 font-bold bg-amber-800 border-b-4 hover:bg-amber-700"
+            onClick={handleDownload}
+          >
+            Download PDF <FaFileDownload />
+          </button>
+        </div>
+      </div>
       {/* 1 */}
       <AccordionItem className="border border-amber-800 rounded">
         <AccordionItemHeading className="bg-amber-800 px-2 font-bold py-3 md:text-xl">
