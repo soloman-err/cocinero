@@ -43,7 +43,7 @@ const ChefSec = () => {
       </div>
       <div className="w-[80%] md:w-[70%] my-5 bg-black border border-amber-700 border-l-0 border-r-0 mx-auto"></div>
       <div className="text-center py-5 md:py-10 border-t mb-10">
-        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl border-b-2 inline border-amber-800">
+        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl border-b-2 inline border-amber-800 text-amber-800">
           Hire a Cuisine Master
         </h1>
       </div>
