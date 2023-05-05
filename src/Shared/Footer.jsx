@@ -14,7 +14,9 @@ const Footer = () => {
     <div className="mt-auto px-5 space-y-2 py-2 text-center bg-slate-800">
       <div className="flex flex-col md:flex-row justify-around gap-10 mt-10">
         <div>
-          <h2 className="font-bold text-3xl lg:text-4xl">Cocinero</h2>
+          <h2 className="font-bold text-3xl lg:text-4xl" translate="no">
+            Cocinero
+          </h2>
           <p className="text font-serif">
             A nobility to our respected cuisines
           </p>

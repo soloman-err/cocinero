@@ -9,7 +9,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="md:w-[90%] lg:w-[60%] my-10 mx-auto border-2 border-l-0 border-b-0 p-3 border-amber-900 rounded-xl shadow-xl">
+    <div className="md:w-[90%] lg:w-[60%] my-10 mx-auto border-2 border-l-0 border-b-0 p-3 bg-slate-900 border-amber-900 rounded-xl shadow-xl">
       <h2 className="font-bold text-xl md:text-2xl text-center underline underline-offset-8 uppercase italic">
         Schedule an Appointment
       </h2>
@@ -21,10 +21,7 @@ const ContactForm = () => {
           placeholder="Type Here.."
         />
         and I'm looking for {/* select option */}
-        <select
-          className="bg-transparent border text-black"
-          onChange={handleOptionChange}
-        >
+        <select className="bg-transparent border" onChange={handleOptionChange}>
           <option value="">Select an option</option>
           <option value="chef1">chef1</option>
           <option value="chef2">chef2</option>

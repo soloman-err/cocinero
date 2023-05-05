@@ -50,11 +50,8 @@ const Review = () => {
   ];
 
   return (
-    <div className="reviewsec w-[80%] my-20 px-10 text-center mx-auto space-y-5 py-20 bg-amber-950 relative">
+    <div className="reviewsec w-[80%] my-10 px-10 text-center mx-auto space-y-5 py-20 bg-amber-950 relative">
       <FaAngellist className="absolute top-10 text-5xl" />
-      <h2 className="font-bold text-5xl font-serif text-center">
-        Clients to Cocinero
-      </h2>
       <Slide
         easing="ease"
         duration={3000}
@@ -67,7 +64,7 @@ const Review = () => {
       >
         {reviews.map((review, index) => (
           <div key={index} className="">
-            <p className="text-white text-2xl font-serif">{review.text}</p>
+            <p className="text-white md:text-2xl font-serif">{review.text}</p>
           </div>
         ))}
       </Slide>
