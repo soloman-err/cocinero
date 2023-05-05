@@ -4,6 +4,7 @@ import { FaBars, FaUser, FaUserCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import ThemeToggle from "./ThemeToggle";
+import tippy from "tippy.js";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -100,11 +101,21 @@ const NavBar = () => {
       <div className="hidden md:flex">
         {user ? (
           <div className="flex gap-2 items-center">
-            <img
-              className="rounded-full w-10 h-10"
-              src={user.photoURL ? user?.photoURL : user?.displayName}
-              alt="user-image"
-            />
+            <div>
+              <img
+                className="rounded-full w-10 h-10"
+                src={user.photoURL ? user?.photoURL : user?.displayName}
+                alt="user-image"
+                title={user.displayName}
+                ref={(element) => {
+                  if (element) {
+                    tippy(element, {
+                      content: element.getAttribute("title"),
+                    });
+                  }
+                }}
+              />
+            </div>
             <button
               onClick={handleLogOut}
               className="px-10 py-1 font-bold bg-amber-800 hover:bg-amber-700"
