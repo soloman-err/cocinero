@@ -9,6 +9,7 @@ import Register from "../Authenticate/Register";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import ChefRecipes from "../Pages/ChefRecipes";
 import PrivateRoute from "./PrivateRoute";
+import Contact from "../Pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About></About>,
+      },
+      {
+        path: "contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/chef-recipes/:id",

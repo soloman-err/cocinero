@@ -5,8 +5,20 @@
 #root {
   height: 100vh;
   background-color: #111;
-  background-image: url(../src/assets/cocinero-bg.jp);
+  background-image: url(../src/assets/cocinero-bg.jpg);
   background-position: center;
   background-size: cover;
   color: #fff;
+}
+
+.reviewsec {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    75% 90%,
+    50% 99%,
+    20% 90%,
+    0 100%
+  );
 }

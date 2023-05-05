@@ -42,7 +42,7 @@ const NavBar = () => {
           open
             ? "top-0 left-0 bg-amber-800 md:bg-transparent ps-2 space-y-5 md:space-y-0 pr-3 pb-10 pt-10 "
             : "top-16 -left-96"
-        } duration-300 md:static md:space-x-3 text-sm font-extrabold`}
+        } duration-300 md:static md:space-x-3 uppercase font-extrabold`}
       >
         <Link
           to="/"
@@ -64,6 +64,13 @@ const NavBar = () => {
           style={activeState == "/about" ? activeStyle : null}
         >
           About us
+        </Link>
+        <Link
+          to="contact"
+          onClick={() => setOpen(false)}
+          style={activeState == "/contact" ? activeStyle : null}
+        >
+          Contact
         </Link>
         <div className="flex gap-2 md:hidden">
           <Link to="login">
