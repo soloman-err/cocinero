@@ -9,8 +9,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="md:w-[90%] lg:w-[60%] my-10 mx-auto border-2 border-l-0 border-b-0 p-3 bg-slate-900 border-amber-900 rounded-xl shadow-xl">
-      <h2 className="font-bold text-xl md:text-2xl text-center underline underline-offset-8 uppercase italic">
+    <div className="md:w-[90%] lg:w-[60%] my-10 mx-auto border-2 border-l-0 border-b-0 p-3 bg-orange-900 text-white rounded-xl shadow-xl">
+      <h2 className="font-bold text-xl md:text-2xl text-center underline underline-offset-8 uppercase">
         Schedule an Appointment
       </h2>
       <div className="space-y-4 mt-5 text-xs">
@@ -20,16 +20,23 @@ const ContactForm = () => {
           className="bg-transparent border-b outline-none text-center"
           placeholder="Type Here.."
         />
-        and I'm looking for {/* select option */}
-        <select className="bg-transparent border" onChange={handleOptionChange}>
-          <option value="">Select an option</option>
-          <option value="chef1">chef1</option>
-          <option value="chef2">chef2</option>
-          <option value="chef3">chef3</option>
+        and I'm looking for
+        {/* select option */}
+        <select
+          className="bg-transparent text-center border-b outline-non"
+          onChange={handleOptionChange}
+        >
+          <option value="" className="text-white">
+            Select an option
+          </option>
+          <option value="Catering chef">Catering chef</option>
+          <option value="Sous chef">Sous chef</option>
+          <option value="Prep cook">Prep cook</option>
+          <option value="Executive chef">Executive chef</option>
         </select>
         <input
           type="text"
-          className="bg-transparent border-b outline-none text-center"
+          className="bg-transparent outline-none text-center"
           placeholder={selected}
         />
         Get in touch with me at{" "}
@@ -43,7 +50,7 @@ const ContactForm = () => {
         {"!"}
       </div>
       <br />
-      <button className="flex items-center gap-2 border-2 border-l-0 border-b-0 p-2 border-amber-900 rounded-xl">
+      <button className="flex items-center gap-2 border-2 border-l-0 border-b-0 p-2 rounded-xl shadow-xl hover:shadow-md">
         Send Enquiry
         <FaArrowRight />
       </button>
