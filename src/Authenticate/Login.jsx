@@ -1,11 +1,12 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { googleSignIn, githubSignIn, emailPassLogIn } =
+  // const [email, setEmail] = useState();
+  const { googleSignIn, githubSignIn, emailPassLogIn, resetPassword } =
     useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -33,6 +34,20 @@ const Login = () => {
         });
     }
   };
+
+  // Forgot Password:
+  // const handleForgotPass = (event) => {
+  //   console.log(event.form);
+  //   const form = event.target;
+  //   const email = form.email.value;
+  //   resetPassword(email)
+  //     .then((result) => {
+  //       console.log(result);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   // Google sign in:
   const handleGoogleSignIn = () => {
@@ -93,8 +108,13 @@ const Login = () => {
               />
             </div>
 
-            <small className="link no-underline">Forgot password?</small>
-
+            <button
+              // onClick={() => handleForgotPass()}
+              className="text-start"
+              type="submit"
+            >
+              <small className="link no-underline">Forgot password?</small>
+            </button>
             <div className="form-control mt-6">
               <button className="btn bg-amber-700">Login</button>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import { FaMailchimp } from "react-icons/fa";
+import ThemeToggle from "../components/ThemeToggle";
 
 const About = () => {
   return (

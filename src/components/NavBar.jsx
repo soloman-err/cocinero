@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaUser, FaUserCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import ThemeToggle from "./ThemeToggle";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -44,6 +45,9 @@ const NavBar = () => {
             : "top-16 -left-96"
         } duration-300 md:static md:space-x-3 uppercase font-extrabold`}
       >
+        <div className="md:hidden">
+          <ThemeToggle />
+        </div>
         <Link
           to="/"
           onClick={() => setOpen(false)}
@@ -109,7 +113,7 @@ const NavBar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <Link to="login">
               <button className="px-5 py-1 font-bold bg-amber-800 hover:bg-amber-700">
                 Login
@@ -120,6 +124,7 @@ const NavBar = () => {
                 Register
               </button>
             </Link>
+            <ThemeToggle />
           </div>
         )}
       </div>

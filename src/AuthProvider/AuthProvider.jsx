@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -59,6 +60,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // Forgot password:
+  // const resetPassword = (email) => {
+  //   return sendPasswordResetEmail(auth, email);
+  // };
+
   const authInfo = {
     user,
     loading,
@@ -67,6 +73,7 @@ const AuthProvider = ({ children }) => {
     emailPassLogIn,
     createUser,
     logOut,
+    // resetPassword,
   };
 
   return (
